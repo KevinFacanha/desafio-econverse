@@ -1,0 +1,153 @@
+@use '../../styles/variables' as *;
+
+.section {
+  width: 100%;
+  margin-top: 72px;
+  padding: 0 24px 80px;
+  box-sizing: border-box;
+  background: $color-white;
+}
+
+.container {
+  width: min(100%, 1250px);
+  margin: 0 auto;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 45px;
+  margin: 0;
+  color: $color-primary;
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+}
+
+.viewport {
+  width: 100%;
+  margin-top: 29px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+
+.viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.brandsRow {
+  display: flex;
+  gap: 42px;
+  width: max-content;
+  min-width: 1223px;
+  margin: 0 auto;
+  padding: 0 13.5px;
+  box-sizing: border-box;
+}
+
+.brandLink {
+  display: inline-flex;
+  text-decoration: none;
+  border-radius: 105.5px;
+}
+
+.brandCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 211px;
+  height: 211px;
+  padding: 87px 47px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: $color-white;
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.13);
+}
+
+.brandLogo {
+  display: block;
+  width: 117px;
+  height: 34.76px;
+  object-fit: contain;
+}
+
+.brandLink:focus-visible {
+  outline: 2px solid $color-primary;
+  outline-offset: 4px;
+}
+
+@media (max-width: 1280px) {
+  .section {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .brandsRow {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    margin-top: 56px;
+    padding-right: 16px;
+    padding-bottom: 64px;
+    padding-left: 16px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .viewport {
+    margin-top: 24px;
+  }
+
+  .brandsRow {
+    gap: 24px;
+    min-width: auto;
+  }
+
+  .brandCircle {
+    width: 160px;
+    height: 160px;
+    padding: 62px 28px;
+  }
+
+  .brandLogo {
+    width: 92px;
+    height: auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .section {
+    padding-right: 12px;
+    padding-bottom: 56px;
+    padding-left: 12px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .brandsRow {
+    gap: 16px;
+  }
+
+  .brandCircle {
+    width: 140px;
+    height: 140px;
+    padding: 54px 24px;
+  }
+
+  .brandLogo {
+    width: 84px;
+  }
+}

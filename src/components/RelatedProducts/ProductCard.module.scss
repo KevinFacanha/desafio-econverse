@@ -1,0 +1,97 @@
+@use '../../styles/variables' as *;
+
+.card {
+  position: relative;
+  width: 304px;
+  height: 500px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background: $color-white;
+  box-shadow: 0 3px 19px rgba(0, 0, 0, 0.22);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card:focus-visible {
+  outline: 2px solid #3442b5;
+  outline-offset: 2px;
+}
+
+.imageWrapper {
+  position: absolute;
+  top: 22.5px;
+  left: 50%;
+  width: 270.22px;
+  height: 240px;
+  transform: translateX(-50%);
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.description,
+.price {
+  position: absolute;
+  left: 12.39px;
+  margin: 0;
+  text-align: left;
+}
+
+.description {
+  top: 269.5px;
+  display: -webkit-box;
+  width: 275.85px;
+  height: 46px;
+  overflow: hidden;
+  color: #3f3f40;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 15px;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.price {
+  top: 353px;
+  color: #3f3f40;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.buyButtonWrap {
+  position: absolute;
+  top: 440px;
+  left: 12.39px;
+}
+
+.buyButton {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 275.85px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: #3442b5;
+  color: $color-white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.buyButton:focus-visible {
+  outline: 2px solid #3442b5;
+  outline-offset: 2px;
+}

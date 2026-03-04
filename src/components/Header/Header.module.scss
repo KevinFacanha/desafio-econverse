@@ -1,0 +1,18 @@
+@use '../../styles/variables' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background: $color-white;
+}
+
+.frame {
+  width: 100%;
+  max-width: $header-frame-width;
+  margin: 0 auto;
+  background: $color-white;
+  display: flex;
+  flex-direction: column;
+}

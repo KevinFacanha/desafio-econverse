@@ -1,0 +1,328 @@
+@use '../../styles/variables' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.dialog {
+  position: relative;
+  display: grid;
+  grid-template-columns: 276px minmax(0, 1fr);
+  gap: 32px;
+  width: 769px;
+  max-width: min(769px, calc(100vw - 32px));
+  height: 299.26px;
+  max-height: calc(100vh - 32px);
+  padding: 18px 28px 18px 28px;
+  border-radius: 6px;
+  border: 1px solid #d9d9d9;
+  box-sizing: border-box;
+  background: $color-white;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  overflow: auto;
+}
+
+.closeButton {
+  appearance: none;
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 9999px;
+  background: transparent;
+  color: $color-text;
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.closeButton:focus-visible {
+  outline: 2px solid $color-primary;
+  outline-offset: 2px;
+}
+
+.media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 276px;
+  height: 263px;
+  padding: 8px;
+  border: 0;
+  border-radius: 6px;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  max-width: 228px;
+  height: auto;
+  max-height: 222px;
+  object-fit: contain;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  height: 100%;
+  justify-content: center;
+  gap: 14px;
+  padding: 10px 4px 10px 0;
+  box-sizing: border-box;
+}
+
+.title {
+  width: 328px;
+  max-width: 328px;
+  margin: 0;
+  color: #3f3f40;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.price {
+  width: 328px;
+  max-width: 328px;
+  margin: 0;
+  color: #3f3f40;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 1px;
+}
+
+.description {
+  width: 320px;
+  max-width: 320px;
+  margin: 0;
+  color: #9f9f9f;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.7;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.detailsLink {
+  margin-top: -4px;
+  color: $color-primary;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.detailsLink:focus-visible {
+  outline: 2px solid $color-primary;
+  outline-offset: 2px;
+}
+
+.actionsRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  margin-top: 6px;
+}
+
+.quantityControl {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 110px;
+  height: 36px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: $color-white;
+}
+
+.quantityInner {
+  display: grid;
+  grid-template-columns: 16px 38.54px 16px;
+  align-items: center;
+  justify-content: space-between;
+  width: 90.54px;
+  height: 19.64px;
+}
+
+.quantityButton {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: 0;
+  background: $color-white;
+  cursor: pointer;
+}
+
+.quantityButton:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 2px solid $color-primary;
+  outline-offset: 2px;
+}
+
+.quantityIcon {
+  position: relative;
+  display: block;
+  width: 11.85px;
+  height: 11.85px;
+}
+
+.quantityIcon::before,
+.quantityIcon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 9999px;
+  transform: translate(-50%, -50%);
+}
+
+.quantityIconMinus::before {
+  width: 11.85px;
+  height: 2px;
+  background: #9f9f9f;
+}
+
+.quantityIconPlus::before,
+.quantityIconPlus::after {
+  background: #271c47;
+}
+
+.quantityIconPlus::before {
+  width: 11.85px;
+  height: 2px;
+}
+
+.quantityIconPlus::after {
+  width: 2px;
+  height: 11.85px;
+}
+
+.quantityValue {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38.54px;
+  height: 19.64px;
+  color: #271c47;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.buyButton {
+  appearance: none;
+  flex: 0 0 188px;
+  width: 188px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px;
+  background: $color-hero-button;
+  color: #271c47;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.buyButton:focus-visible {
+  outline: 2px solid $color-primary;
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .dialog {
+    width: min(100%, 769px);
+    height: auto;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .content {
+    justify-content: flex-start;
+    padding-top: 0;
+  }
+
+  .media {
+    width: 100%;
+    height: 220px;
+  }
+
+  .title,
+  .price,
+  .description {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .overlay {
+    padding: 16px;
+  }
+
+  .dialog {
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .actionsRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .quantityControl {
+    width: 100%;
+  }
+
+  .quantityInner {
+    width: min(90.54px, 100%);
+    grid-template-columns: 16px minmax(32px, 1fr) 16px;
+  }
+
+  .buyButton {
+    width: 100%;
+    flex: 1 1 auto;
+  }
+}

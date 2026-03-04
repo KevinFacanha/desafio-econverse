@@ -1,0 +1,262 @@
+@use '../../styles/variables' as *;
+
+.section {
+  width: 100%;
+  min-height: 162px;
+  background: $color-hero-button-text;
+}
+
+.container {
+  width: min(100%, 1440px);
+  min-height: 162px;
+  margin: 0 auto;
+}
+
+.content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: min(100%, 1280px);
+  min-height: 162px;
+  margin: 0 auto;
+  padding-top: 40px;
+  box-sizing: border-box;
+}
+
+.copyBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 515px;
+}
+
+.title {
+  width: 463px;
+  margin: 0;
+  color: $color-white;
+  font-family: 'Outfit', sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.subtitle {
+  width: 515px;
+  margin: 0;
+  color: $color-white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 18px;
+}
+
+.formBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 639px;
+  margin-top: 5.5px;
+}
+
+.fieldsRow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  width: 639px;
+  height: 42px;
+}
+
+.field {
+  flex: 0 0 233px;
+  width: 233px;
+}
+
+.input {
+  width: 100%;
+  height: 42px;
+  padding: 12px 24px;
+  border: 1px solid #e7e7e7;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background: $color-white;
+  color: #161615;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.input::placeholder {
+  color: #676767;
+  opacity: 1;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.input:focus-visible {
+  outline: 2px solid $color-hero-button;
+  outline-offset: 2px;
+}
+
+.submitButton {
+  flex: 0 0 157px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 157px;
+  height: 42px;
+  padding: 15px 40px;
+  border: 0;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background: $color-hero-button;
+  color: #161615;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 12px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.submitButton:focus-visible {
+  outline: 2px solid $color-white;
+  outline-offset: 2px;
+}
+
+.checkboxRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 21px;
+  width: max-content;
+  color: $color-white;
+  cursor: pointer;
+}
+
+.checkbox {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  border: 1px solid #8c342b;
+  border-radius: 1px;
+  box-sizing: border-box;
+  background: #f6f6f6;
+  cursor: pointer;
+}
+
+.checkbox:checked {
+  background: $color-hero-button;
+  box-shadow: inset 0 0 0 3px #f6f6f6;
+}
+
+.checkbox:focus-visible {
+  outline: 2px solid $color-white;
+  outline-offset: 2px;
+}
+
+.checkboxLabel {
+  color: $color-white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 1024px) {
+  .section,
+  .container,
+  .content {
+    min-height: 0;
+  }
+
+  .content {
+    flex-direction: column;
+    gap: 24px;
+    padding: 32px 24px;
+  }
+
+  .copyBlock,
+  .subtitle,
+  .formBlock,
+  .fieldsRow {
+    width: 100%;
+  }
+
+  .title {
+    width: 100%;
+  }
+
+  .formBlock {
+    margin-top: 0;
+  }
+
+  .fieldsRow {
+    flex-wrap: wrap;
+  }
+
+  .field {
+    flex: 1 1 280px;
+    width: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .fieldsRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .field,
+  .submitButton {
+    width: 100%;
+    flex: 1 1 auto;
+  }
+
+  .checkboxRow {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .content {
+    gap: 20px;
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .subtitle,
+  .checkboxLabel {
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,153 @@
+@use '../../styles/variables' as *;
+
+.section {
+  width: 100%;
+  margin-top: 39px;
+  background: $color-white;
+}
+
+.container {
+  width: 1160px;
+  height: 171px;
+  margin: 0 auto;
+}
+
+.track {
+  display: flex;
+  align-items: flex-start;
+  gap: 42px;
+  width: 1148px;
+  height: 171px;
+  margin: 0 auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 128px;
+  height: 171px;
+  padding: 0;
+  background: transparent;
+}
+
+.iconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 128px;
+  height: 128px;
+  border-radius: 10px;
+}
+
+.iconBoxActive {
+  background: $color-white;
+  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.22);
+}
+
+.iconBoxInactive {
+  background: #f4f4f4;
+  box-shadow: 0 4px 11px rgba(0, 0, 0, 0.13);
+}
+
+.icon {
+  display: block;
+  width: 61px;
+  height: 61px;
+  object-fit: contain;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 128px;
+  min-height: 21px;
+  margin-top: 22px;
+  color: #4e4e4e;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.activeCard {
+  appearance: none;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.activeCard:focus-visible {
+  outline: 2px solid $color-nav-active;
+  outline-offset: 4px;
+  border-radius: 10px;
+}
+
+.activeCard .label {
+  color: $color-nav-active;
+}
+
+@media (max-width: 768px) {
+  .section {
+    margin-top: 32px;
+  }
+
+  .container {
+    width: 100%;
+    height: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+  }
+
+  .container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .track {
+    gap: 20px;
+    width: max-content;
+    height: auto;
+    margin: 0;
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 420px) {
+  .container {
+    padding-bottom: 4px;
+  }
+
+  .track {
+    gap: 14px;
+    padding: 0 12px;
+  }
+
+  .card {
+    width: 104px;
+    height: 148px;
+  }
+
+  .iconBox {
+    width: 104px;
+    height: 104px;
+  }
+
+  .icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .label {
+    width: 104px;
+    min-height: 28px;
+    margin-top: 16px;
+    font-size: 12px;
+    line-height: 1.2;
+    white-space: normal;
+  }
+}

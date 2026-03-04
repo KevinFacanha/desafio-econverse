@@ -1,0 +1,196 @@
+@use '../../styles/variables' as *;
+
+.section {
+  width: 1280px;
+  margin: 90px auto 0;
+  background: $color-white;
+}
+
+.titleBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1138px;
+  height: 45px;
+  margin: 0 auto;
+  background: $color-white;
+  gap: 17px;
+}
+
+.titleLine {
+  flex: 0 0 360px;
+  width: 360px;
+  border-top: 1px solid #dedede;
+}
+
+.title {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 350px;
+  width: 350px;
+  height: 45px;
+  margin: 0;
+  color: #3442b5;
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 45px;
+  text-align: center;
+}
+
+.tabsNav {
+  width: 1280px;
+  height: 40px;
+  margin-top: 4px;
+}
+
+.tabsList {
+  display: flex;
+  width: 1280px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tabItem {
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.tabItem + .tabItem {
+  margin-left: -1px;
+}
+
+.tabButton {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  width: 100%;
+  height: 40px;
+  padding: 12px 58px;
+  border: 1px solid #bdbdbd;
+  background: $color-white;
+  color: #3b3b3b;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 16px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.tabButtonActive {
+  color: #3442b5;
+}
+
+.tabButtonViewAll {
+  color: #3b3b3b;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.tabButtonViewAll.tabButtonActive {
+  color: #3b3b3b;
+}
+
+.tabButton:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 2px solid #3442b5;
+  outline-offset: -2px;
+}
+
+@media (max-width: 1024px) {
+  .section,
+  .tabsNav {
+    width: 100%;
+  }
+
+  .section {
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .titleBar {
+    width: 100%;
+  }
+
+  .titleLine {
+    flex: 1 1 auto;
+    width: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    margin-top: 56px;
+    padding: 0 16px;
+  }
+
+  .titleBar {
+    gap: 10px;
+  }
+
+  .title {
+    flex: 0 1 auto;
+    width: auto;
+    font-size: 24px;
+    line-height: 1.1;
+  }
+
+  .tabsNav {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+  }
+
+  .tabsNav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tabsList {
+    width: max-content;
+    min-width: 100%;
+  }
+
+  .tabItem {
+    flex: 0 0 auto;
+    min-width: max-content;
+  }
+
+  .tabButton {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 420px) {
+  .section {
+    padding: 0 12px;
+  }
+
+  .titleLine {
+    display: none;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .tabButton {
+    padding: 12px 18px;
+    font-size: 13px;
+  }
+
+  .tabButtonViewAll {
+    font-size: 13px;
+  }
+}
