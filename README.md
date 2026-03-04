@@ -1,73 +1,62 @@
-# React + TypeScript + Vite
+# Desafio Front-End — Econverse (Pixel Perfect)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto desenvolvido para o desafio técnico Front-End da **Econverse**, com foco em **pixel-perfect no desktop (1440px)** e **responsividade com bom senso**, seguindo as regras do README do desafio.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Stack / Regras do desafio
+- **React + TypeScript + Vite**
+- **SCSS / SCSS Modules**
+- **Sem bibliotecas de UI** (nada de MUI/Chakra/Bootstrap/Tailwind)
+- Componentização por seção, código limpo e organizado
+- Semântica e acessibilidade básica (botões, aria-label quando necessário)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## O que foi implementado
+- Header (TopBar, MainBar e NavBar)
+- Banner/Hero
+- Seção “Compre por categoria”
+- Seção “Produtos relacionados” com carrossel e tabs
+- Seção de parceiros / banners
+- Newsletter
+- Footer
+- Modal do produto (ao clicar em **COMPRAR**)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Fonte de dados (Produtos) — FIEL AO JSON
+A vitrine e o modal consomem o JSON do desafio via `fetch`.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+**Contrato utilizado (exatamente como no JSON):**
+- `productName`
+- `descriptionShort`
+- `photo`
+- `price`
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### `price` vem em centavos
+O campo `price` é tratado como **centavos** e formatado para BRL na UI.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Exemplo:
+- `15000` → **R$ 150,00**
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Decisão importante (por requisito do desafio)
+Por boas práticas e por fidelidade ao requisito da vaga, os **cards** exibem **somente nome + preço** (sem preço antigo, parcelamento ou frete grátis), pois esses campos **não existem no JSON** fornecido.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+O **modal** segue a mesma regra: usa **apenas** `productName`, `descriptionShort`, `photo` e `price`.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## Observação sobre CORS no DEV (Vite Proxy)
+Em ambiente local, chamadas diretas para o endpoint externo podem falhar por **CORS**.  
+Por isso, no **DEV** é usado um **proxy do Vite** (`/api/products`).  
+Em **produção**, o fetch usa a URL real do endpoint.
+
+> Arquivos relacionados: `vite.config.ts` e `src/services/products.ts`
+
+---
+
+## Como rodar o projeto
+```bash
+npm install
+npm run dev
